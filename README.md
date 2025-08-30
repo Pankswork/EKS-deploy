@@ -19,8 +19,8 @@
         		Fargate profile – default selectors for key namespaces
         		Essential Kubernetes add-ons installed by default
 		  
-	![Cluster](./images/Cluster-creation.png)
-    ![Cluster](./images/Cluster.png)
+![Cluster](./images/Cluster-creation.png)
+![Cluster](./images/Cluster.png)
 	
 NOTE: OpenID connect provider URL: eksctl creates a IAM role whose policy is to trust tokens from EKS cluster OIDC provider. Pods gets an OIDC token from EKS cluster OIDC provider. AWS IAM checks trust policy, if checks pass - pod assumes the IAM role and gets temporary AWS credentials.
 
