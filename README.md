@@ -5,10 +5,10 @@
 1.Prerequisities.
 
 2.Create a eks-cluster:
-  	- Cluster can be created in 2 ways using AWS-UI and AWS-CLI.
-  	- I went with cli:
-        	- "eksctl create cluster --name demo-cluster --region us-east-1 --fargate"
-        	- It creates: 
+  	2.1 Cluster can be created in 2 ways using AWS-UI and AWS-CLI.
+  	2.2 I went with cli:
+        	2.2.1 "eksctl create cluster --name demo-cluster --region us-east-1 --fargate"
+        	2.2.2 It creates: 
         	 	VPC with both public and private subnets across multiple AZs.
         	        NAT Gateway for outbound internet from private subnets
         		EKS control plane (managed by AWS)
