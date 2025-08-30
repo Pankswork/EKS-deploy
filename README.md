@@ -24,6 +24,8 @@
 	
 NOTE: OpenID connect provider URL: eksctl creates a IAM role whose policy is to trust tokens from EKS cluster OIDC provider. Pods gets an OIDC token from EKS cluster OIDC provider. AWS IAM checks trust policy, if checks pass - pod assumes the IAM role and gets temporary AWS credentials.
 
+![Cluster](./images/Cluster.png)
+
 3.This command writes the cluster’s connection info + authentication method into your kubeconfig, so that kubectl knows how to securely connect to your EKS cluster.
   	- "aws eks update-kubeconfig --name demo-cluster --region us-east-1"
 
@@ -52,14 +54,18 @@ NOTE: OpenID connect provider URL: eksctl creates a IAM role whose policy is to 
 			- "helm repo add eks https://aws.github.io/eks-charts".
 		- Update helm repo:
 			- "helm repo update eks".
-                - Install the controller:(GET VPC ID FROM EKS CLUSTER->NETWORKING)
-			- "helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system \
+        - Install the controller:(GET VPC ID FROM EKS CLUSTER->NETWORKING)
+			   - "helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system \
   			   --set clusterName=<your-cluster-name> \
  		           --set serviceAccount.create=false \
   			   --set serviceAccount.name=aws-load-balancer-controller \
   			   --set region=<your-region> \
   			   --set vpcId=<your-vpc-id>".
-                - Check if load balancer controller is created and its replicas:
-			- "kubectl get deployment -n kube-system aws-load-balancer-controller".
-                - Check if alb is is created or not in EC2 DASHBOARD->LB.
+		![Cluster](./images/Load-Balancer.png.png)
+
+        - Check if load-balancer controller is created and its replicas:
+		        - "kubectl get deployment -n kube-system aws-load-balancer-controller".
+                - Check if alb is created or not in EC2 DASHBOARD->LB.
                 - Go to LB>DNS name>copy paste in browser url.
+
+![Cluster](./images/Cluster-delete.png)
