@@ -1,6 +1,6 @@
-#AWS EKS PROJECT
+##AWS EKS PROJECT
 
-## Steps to Deploy:
+#Steps to Deploy:
 
 1.Prerequisities.
 
